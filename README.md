@@ -1,27 +1,13 @@
-# ServApp
+# Angular-servTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+Prueba de consumo de servicios en Angular 8 utilizando la funcion de Angular in-memory-web-api para simular el servicio de una api para simular el consumo y el manejo de datos de las request de Http (GET, POST, PUT, DELETE)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Liga de proyecto
+https://angular-test-8edcc.firebaseapp.com/users
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+proximo tutorial:
+Armar una aplicacion completa con el back en NodeJS y MongoDB
+https://appdividend.com/2019/06/04/angular-8-tutorial-with-example-learn-angular-8-crud-from-scratch/
