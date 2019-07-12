@@ -1,0 +1,26 @@
+<h2>Código Postal</h2>
+
+<div>
+    <form #codeForm="ngForm">
+        <label>Introduzca su código postal:
+            <input (keyup)="valCode(code.value)" type="number" #code />
+        </label>
+        &nbsp;
+        <button (click)="getData(code.value);">
+            consultar
+        </button>
+    </form>
+    <p class="error">{{ errMsg }}</p>
+</div>
+
+<div *ngIf="data">
+    <p>{{data.codigo_postal}}</p>
+    <p>{{data.municipio}}</p>
+    <p>{{data.estado}}</p>
+    <ul class="colonias">
+        <li *ngFor="let col of data.colonias">
+            {{col}}
+        </li>
+    </ul>
+</div>
+

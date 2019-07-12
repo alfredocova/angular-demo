@@ -5,7 +5,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { User } from './user';
+import { USERS } from './mock-users';
 import { MessageService } from './message.service';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,21 +23,32 @@ export class UserService {
       private messageService: MessageService) { }
 
   /** sacar lista de usuarios */
-  getUsers(): Observable<User[]> {
+/*  getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl)
         .pipe(
             tap(_ => this.log('Usuarios - lista')),
             catchError(this.handleError<User[]>('getUsers', []))
         );
+  }*/
+
+  getUsers(): Observable<User[]> {
+    // TODO: send the message _after_ fetching the heroes
+    this.messageService.add('Lista - Usuarios');
+    return of(USERS);
   }
 
   /** buscar usuario por id */
-  getUser(id: number): Observable<User> {
+/*  getUser(id: number): Observable<User> {
     const url = `${this.userUrl}/${id}`;
     return this.http.get<User>(url).pipe(
         tap(_ => this.log(`perfil de usuario id=${id}`)),
         catchError(this.handleError<User>(`getUser ID=${id}`))
     );
+  }*/
+
+  getUser(id: number): Observable<User> {
+    this.messageService.add(`Perfil de usuario con id=${id}`);
+    return of(USERS.find(user => user.id === id));
   }
 
   //////// Save methods //////////
@@ -60,10 +73,7 @@ export class UserService {
 
   /** actualizar usuario */
   updateUser(user: User): Observable<any> {
-    return this.http.put(this.userUrl, user, httpOptions).pipe(
-        tap(_ => this.log(`usuario acutalizado con id=${user.id}`)),
-        catchError(this.handleError<any>('updateUser'))
-    );
+    return this.http.put(this.userUrl, user, httpOptions).pipe();
   }
 
   /**
@@ -84,7 +94,7 @@ export class UserService {
   }
 
   /** Log de cambios */
-  private log(message: string) {
+  log(message: string) {
     this.messageService.add(`Log: ${message}`);
   }
 }

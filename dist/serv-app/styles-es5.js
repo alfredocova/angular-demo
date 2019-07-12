@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/alfredo/Desktop/Angular-servTest/serv-app/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /home/alfredo/Desktop/angular-demo/src/styles.css */"./src/styles.css");
 
 
 /***/ })

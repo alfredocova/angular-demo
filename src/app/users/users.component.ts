@@ -26,15 +26,18 @@ export class UsersComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.userService.addUser({ name, id: this.nid++ } as User)
+    this.userService.log('Se agrego usuario con id:' + this.nid);
+    this.users.push({ name, id: this.nid++ } as User);
+/*    this.userService.addUser({ name, id: this.nid++ } as User)
         .subscribe(user => {
           this.users.push(user);
-        });
+        });*/
   }
 
   delete(user: User): void {
+    this.userService.log('Usuario eliminado con id:' + user.id);
     this.users = this.users.filter(h => h !== user);
-    this.userService.deleteUser(user).subscribe();
+/*    this.userService.deleteUser(user).subscribe();*/
   }
 
 }

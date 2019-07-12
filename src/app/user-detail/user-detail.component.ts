@@ -34,7 +34,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.userService.updateUser(this.user)
-        .subscribe(() => this.goBack());
+    this.userService.log('Usuario editado con id:' + this.user.id);
+/*    this.userService.updateUser(this.user)
+        .subscribe(() => this.goBack());*/
+    this.goBack();
   }
 }

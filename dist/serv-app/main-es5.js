@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n<app-messages></app-messages>\n"
+module.exports = "<nav>\n    <a routerLink=\"/users\">Usuarios</a>\n    <a routerLink=\"/postal-code\">Código Postal</a>\n</nav>\n<router-outlet></router-outlet>\n<app-messages></app-messages>\n"
 
 /***/ }),
 
@@ -42,6 +42,17 @@ module.exports = "<router-outlet></router-outlet>\n<app-messages></app-messages>
 /***/ (function(module, exports) {
 
 module.exports = "<div *ngIf=\"messageService.messages.length\">\n\n    <h2>Mensajes de Log</h2>\n    <div *ngFor='let message of messageService.messages'> {{message}} </div>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/postal-code/postal-code.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/postal-code/postal-code.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Código Postal</h2>\n\n<div>\n    <form #codeForm=\"ngForm\">\n        <label>Introduzca su código postal:\n            <input (keyup)=\"valCode(code.value)\" type=\"number\" #code />\n        </label>\n        &nbsp;\n        <button (click)=\"getData(code.value);\">\n            consultar\n        </button>\n    </form>\n    <p class=\"error\">{{ errMsg }}</p>\n</div>\n\n<div *ngIf=\"data\">\n    <p>{{data.codigo_postal}}</p>\n    <p>{{data.municipio}}</p>\n    <p>{{data.estado}}</p>\n    <ul class=\"colonias\">\n        <li *ngFor=\"let col of data.colonias\">\n            {{col}}\n        </li>\n    </ul>\n</div>\n\n"
 
 /***/ }),
 
@@ -82,6 +93,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _users_users_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users/users.component */ "./src/app/users/users.component.ts");
 /* harmony import */ var _user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-detail/user-detail.component */ "./src/app/user-detail/user-detail.component.ts");
+/* harmony import */ var _postal_code_postal_code_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./postal-code/postal-code.component */ "./src/app/postal-code/postal-code.component.ts");
+
 
 
 
@@ -91,6 +104,7 @@ var routes = [
     { path: '', redirectTo: '/users', pathMatch: 'full' },
     { path: 'users', component: _users_users_component__WEBPACK_IMPORTED_MODULE_3__["UsersComponent"] },
     { path: 'detail/:id', component: _user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_4__["UserDetailComponent"] },
+    { path: 'postal-code', component: _postal_code_postal_code_component__WEBPACK_IMPORTED_MODULE_5__["PostalCodeComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -115,7 +129,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "h1 {\n    font-size: 1.2em;\n    margin-bottom: 0;\n}\nh2 {\n    font-size: 2em;\n    margin-top: 0;\n    padding-top: 0;\n}\nnav a {\n    padding: 5px 10px;\n    text-decoration: none;\n    margin-top: 10px;\n    display: inline-block;\n    background-color: #eee;\n    border-radius: 4px;\n}\nnav a:visited, a:link {\n    color: #334953;\n}\nnav a:hover {\n    color: #039be5;\n    background-color: #cfd8dc;\n}\nnav a.active {\n    color: #039be5;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsYUFBYTtJQUNiLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixxQkFBcUI7SUFDckIsZ0JBQWdCO0lBQ2hCLHFCQUFxQjtJQUNyQixzQkFBc0I7SUFDdEIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoMSB7XG4gICAgZm9udC1zaXplOiAxLjJlbTtcbiAgICBtYXJnaW4tYm90dG9tOiAwO1xufVxuaDIge1xuICAgIGZvbnQtc2l6ZTogMmVtO1xuICAgIG1hcmdpbi10b3A6IDA7XG4gICAgcGFkZGluZy10b3A6IDA7XG59XG5uYXYgYSB7XG4gICAgcGFkZGluZzogNXB4IDEwcHg7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIG1hcmdpbi10b3A6IDEwcHg7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxubmF2IGE6dmlzaXRlZCwgYTpsaW5rIHtcbiAgICBjb2xvcjogIzMzNDk1Mztcbn1cbm5hdiBhOmhvdmVyIHtcbiAgICBjb2xvcjogIzAzOWJlNTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2ZkOGRjO1xufVxubmF2IGEuYWN0aXZlIHtcbiAgICBjb2xvcjogIzAzOWJlNTtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -166,14 +180,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-in-memory-web-api */ "./node_modules/angular-in-memory-web-api/index.js");
-/* harmony import */ var _in_memory_data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./in-memory-data.service */ "./src/app/in-memory-data.service.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _users_users_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./users/users.component */ "./src/app/users/users.component.ts");
-/* harmony import */ var _user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user-detail/user-detail.component */ "./src/app/user-detail/user-detail.component.ts");
-/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
-
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _users_users_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./users/users.component */ "./src/app/users/users.component.ts");
+/* harmony import */ var _user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-detail/user-detail.component */ "./src/app/user-detail/user-detail.component.ts");
+/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
+/* harmony import */ var _postal_code_postal_code_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./postal-code/postal-code.component */ "./src/app/postal-code/postal-code.component.ts");
 
 
 
@@ -191,67 +203,23 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
-                _users_users_component__WEBPACK_IMPORTED_MODULE_9__["UsersComponent"],
-                _user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_10__["UserDetailComponent"],
-                _messages_messages_component__WEBPACK_IMPORTED_MODULE_11__["MessagesComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+                _users_users_component__WEBPACK_IMPORTED_MODULE_7__["UsersComponent"],
+                _user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_8__["UserDetailComponent"],
+                _messages_messages_component__WEBPACK_IMPORTED_MODULE_9__["MessagesComponent"],
+                _postal_code_postal_code_component__WEBPACK_IMPORTED_MODULE_10__["PostalCodeComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_5__["HttpClientInMemoryWebApiModule"].forRoot(_in_memory_data_service__WEBPACK_IMPORTED_MODULE_6__["InMemoryDataService"], { dataEncapsulation: false })
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/in-memory-data.service.ts":
-/*!*******************************************!*\
-  !*** ./src/app/in-memory-data.service.ts ***!
-  \*******************************************/
-/*! exports provided: InMemoryDataService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InMemoryDataService", function() { return InMemoryDataService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var InMemoryDataService = /** @class */ (function () {
-    function InMemoryDataService() {
-    }
-    InMemoryDataService.prototype.createDb = function () {
-        var users = [
-            { id: 11, name: 'Luis Gonzalez', age: '20' },
-            { id: 12, name: 'Carlos tevez', age: '23' },
-            { id: 13, name: 'Ricardo Milos', age: '21' },
-            { id: 14, name: 'Laura Garza', age: '27' },
-            { id: 15, name: 'Roberto Villanueva', age: '29' },
-            { id: 16, name: 'Pablo lopez', age: '30' },
-            { id: 17, name: 'Eugenio Tapia', age: '21' },
-            { id: 18, name: 'Dr Acula', age: '20' },
-            { id: 19, name: 'Pamela Ortiz', age: '26' },
-            { id: 20, name: 'Claudia Serrano', age: '23' }
-        ];
-        return { users: users };
-    };
-    InMemoryDataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root',
-        })
-    ], InMemoryDataService);
-    return InMemoryDataService;
 }());
 
 
@@ -339,6 +307,166 @@ var MessagesComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/mock-users.ts":
+/*!*******************************!*\
+  !*** ./src/app/mock-users.ts ***!
+  \*******************************/
+/*! exports provided: USERS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USERS", function() { return USERS; });
+var USERS = [
+    { id: 11, name: 'Luis Gonzalez', age: '20' },
+    { id: 12, name: 'Carlos tevez', age: '23' },
+    { id: 13, name: 'Ricardo Milos', age: '21' },
+    { id: 14, name: 'Laura Garza', age: '27' },
+    { id: 15, name: 'Roberto Villanueva', age: '29' },
+    { id: 16, name: 'Pablo lopez', age: '30' },
+    { id: 17, name: 'Eugenio Tapia', age: '21' },
+    { id: 18, name: 'Dr Acula', age: '20' },
+    { id: 19, name: 'Pamela Ortiz', age: '26' },
+    { id: 20, name: 'Claudia Serrano', age: '23' }
+];
+
+
+/***/ }),
+
+/***/ "./src/app/postal-code.service.ts":
+/*!****************************************!*\
+  !*** ./src/app/postal-code.service.ts ***!
+  \****************************************/
+/*! exports provided: PostalCodeService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostalCodeService", function() { return PostalCodeService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _message_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./message.service */ "./src/app/message.service.ts");
+
+
+
+
+
+
+var PostalCodeService = /** @class */ (function () {
+    function PostalCodeService(http, messageService) {
+        this.http = http;
+        this.messageService = messageService;
+        this.codeUrl = 'https://api-codigos-postales.herokuapp.com/v2/codigo_postal/';
+    }
+    PostalCodeService.prototype.getData = function (id) {
+        var _this = this;
+        var url = "" + this.codeUrl + id;
+        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("informacion de cp=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getData CP=" + id)));
+    };
+    /**
+     * Manejo de errores
+     */
+    PostalCodeService.prototype.handleError = function (operation, result) {
+        var _this = this;
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+            // TODO: better job of transforming error for user consumption
+            _this.log("No se puede procesar la petici\u00F3n");
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    };
+    /** Log de cambios */
+    PostalCodeService.prototype.log = function (message) {
+        this.messageService.add("Log: " + message);
+    };
+    PostalCodeService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+        { type: _message_service__WEBPACK_IMPORTED_MODULE_5__["MessageService"] }
+    ]; };
+    PostalCodeService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        })
+    ], PostalCodeService);
+    return PostalCodeService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/postal-code/postal-code.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/postal-code/postal-code.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "button {\n    background-color: #eee;\n    border: none;\n    padding: 5px 10px;\n    border-radius: 4px;\n    cursor: pointer;\n    cursor: hand;\n    font-family: Arial;\n}\n\nbutton:hover {\n    background-color: #cfd8dc;\n}\n\n.error {\n    color: red;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9zdGFsLWNvZGUvcG9zdGFsLWNvZGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHNCQUFzQjtJQUN0QixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixlQUFlO0lBQ2YsWUFBWTtJQUNaLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLHlCQUF5QjtBQUM3Qjs7QUFFQTtJQUNJLFVBQVU7QUFDZCIsImZpbGUiOiJzcmMvYXBwL3Bvc3RhbC1jb2RlL3Bvc3RhbC1jb2RlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJidXR0b24ge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIHBhZGRpbmc6IDVweCAxMHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgY3Vyc29yOiBoYW5kO1xuICAgIGZvbnQtZmFtaWx5OiBBcmlhbDtcbn1cblxuYnV0dG9uOmhvdmVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2ZkOGRjO1xufVxuXG4uZXJyb3Ige1xuICAgIGNvbG9yOiByZWQ7XG59XG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/postal-code/postal-code.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/postal-code/postal-code.component.ts ***!
+  \******************************************************/
+/*! exports provided: PostalCodeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostalCodeComponent", function() { return PostalCodeComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _postal_code_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../postal-code.service */ "./src/app/postal-code.service.ts");
+
+
+
+var PostalCodeComponent = /** @class */ (function () {
+    function PostalCodeComponent(postalService) {
+        this.postalService = postalService;
+    }
+    PostalCodeComponent.prototype.valCode = function (code) {
+        this.errMsg = '';
+        if (Number(code) === 0) {
+            this.errMsg = 'No pueden ser letras y tiene que ser un numero mayor a 0';
+            return;
+        }
+    };
+    PostalCodeComponent.prototype.getData = function (code) {
+        var _this = this;
+        if (!code) {
+            this.errMsg = 'Es necesario ingresar un código de 5 números';
+            return;
+        }
+        this.postalService.getData(code)
+            .subscribe(function (data) { return _this.data = data; });
+    };
+    PostalCodeComponent.prototype.ngOnInit = function () {
+    };
+    PostalCodeComponent.ctorParameters = function () { return [
+        { type: _postal_code_service__WEBPACK_IMPORTED_MODULE_2__["PostalCodeService"] }
+    ]; };
+    PostalCodeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-postal-code',
+            template: __webpack_require__(/*! raw-loader!./postal-code.component.html */ "./node_modules/raw-loader/index.js!./src/app/postal-code/postal-code.component.html"),
+            styles: [__webpack_require__(/*! ./postal-code.component.css */ "./src/app/postal-code/postal-code.component.css")]
+        })
+    ], PostalCodeComponent);
+    return PostalCodeComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/user-detail/user-detail.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/user-detail/user-detail.component.css ***!
@@ -389,9 +517,10 @@ var UserDetailComponent = /** @class */ (function () {
         this.location.back();
     };
     UserDetailComponent.prototype.save = function () {
-        var _this = this;
-        this.userService.updateUser(this.user)
-            .subscribe(function () { return _this.goBack(); });
+        this.userService.log('Usuario editado con id:' + this.user.id);
+        /*    this.userService.updateUser(this.user)
+                .subscribe(() => this.goBack());*/
+        this.goBack();
     };
     UserDetailComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
@@ -430,7 +559,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _message_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./message.service */ "./src/app/message.service.ts");
+/* harmony import */ var _mock_users__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mock-users */ "./src/app/mock-users.ts");
+/* harmony import */ var _message_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./message.service */ "./src/app/message.service.ts");
+
 
 
 
@@ -447,16 +578,29 @@ var UserService = /** @class */ (function () {
         this.userUrl = 'api/users';
     }
     /** sacar lista de usuarios */
+    /*  getUsers(): Observable<User[]> {
+        return this.http.get<User[]>(this.userUrl)
+            .pipe(
+                tap(_ => this.log('Usuarios - lista')),
+                catchError(this.handleError<User[]>('getUsers', []))
+            );
+      }*/
     UserService.prototype.getUsers = function () {
-        var _this = this;
-        return this.http.get(this.userUrl)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log('Usuarios - lista'); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getUsers', [])));
+        // TODO: send the message _after_ fetching the heroes
+        this.messageService.add('Lista - Usuarios');
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_users__WEBPACK_IMPORTED_MODULE_5__["USERS"]);
     };
     /** buscar usuario por id */
+    /*  getUser(id: number): Observable<User> {
+        const url = `${this.userUrl}/${id}`;
+        return this.http.get<User>(url).pipe(
+            tap(_ => this.log(`perfil de usuario id=${id}`)),
+            catchError(this.handleError<User>(`getUser ID=${id}`))
+        );
+      }*/
     UserService.prototype.getUser = function (id) {
-        var _this = this;
-        var url = this.userUrl + "/" + id;
-        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("perfil de usuario id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getUser ID=" + id)));
+        this.messageService.add("Perfil de usuario con id=" + id);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_users__WEBPACK_IMPORTED_MODULE_5__["USERS"].find(function (user) { return user.id === id; }));
     };
     //////// Save methods //////////
     /** agregar usuario */
@@ -473,8 +617,7 @@ var UserService = /** @class */ (function () {
     };
     /** actualizar usuario */
     UserService.prototype.updateUser = function (user) {
-        var _this = this;
-        return this.http.put(this.userUrl, user, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("usuario acutalizado con id=" + user.id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updateUser')));
+        return this.http.put(this.userUrl, user, httpOptions).pipe();
     };
     /**
      * Manejo de errores
@@ -497,7 +640,7 @@ var UserService = /** @class */ (function () {
     };
     UserService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
-        { type: _message_service__WEBPACK_IMPORTED_MODULE_5__["MessageService"] }
+        { type: _message_service__WEBPACK_IMPORTED_MODULE_6__["MessageService"] }
     ]; };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
@@ -550,19 +693,21 @@ var UsersComponent = /** @class */ (function () {
             .subscribe(function (users) { return _this.users = users; });
     };
     UsersComponent.prototype.add = function (name) {
-        var _this = this;
         name = name.trim();
         if (!name) {
             return;
         }
-        this.userService.addUser({ name: name, id: this.nid++ })
-            .subscribe(function (user) {
-            _this.users.push(user);
-        });
+        this.userService.log('Se agrego usuario con id:' + this.nid);
+        this.users.push({ name: name, id: this.nid++ });
+        /*    this.userService.addUser({ name, id: this.nid++ } as User)
+                .subscribe(user => {
+                  this.users.push(user);
+                });*/
     };
     UsersComponent.prototype.delete = function (user) {
+        this.userService.log('Usuario eliminado con id:' + user.id);
         this.users = this.users.filter(function (h) { return h !== user; });
-        this.userService.deleteUser(user).subscribe();
+        /*    this.userService.deleteUser(user).subscribe();*/
     };
     UsersComponent.ctorParameters = function () { return [
         { type: _user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] }
@@ -642,7 +787,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/alfredo/Desktop/Angular-servTest/serv-app/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/alfredo/Desktop/angular-demo/src/main.ts */"./src/main.ts");
 
 
 /***/ })
